@@ -29,7 +29,10 @@ public class Implement
         lastNode = 0;
     }
 
-    //реализация задачи о выборе заявок
+    /// <summary>
+    /// Сортировка для реализации задачи
+    /// </summary>
+    /// <returns></returns>
     public bool Step()
     {
         // 1 шаг

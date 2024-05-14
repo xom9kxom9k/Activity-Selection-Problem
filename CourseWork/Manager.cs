@@ -8,12 +8,22 @@ namespace CourseWork;
 
 public class Manager
 {
+    /// <summary>
+    /// Объект класса реализатора
+    /// </summary>
     public Implement Implement;
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="parameter"></param>
     public Manager(Parameter parameter)
     {
         Implement = new Implement(parameter.Binds);
     }
-
+    /// <summary>
+    /// Запись в объект-хранилище
+    /// </summary>
+    /// <returns></returns>
     public Storage StartAlgo()
     {
         Storage storage = new Storage();

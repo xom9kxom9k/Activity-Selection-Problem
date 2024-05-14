@@ -19,7 +19,10 @@ public class Storage
         states = new List<State>();
         CurrentStateIndex = 0;
     }
-
+    /// <summary>
+    /// Шаг вперед
+    /// </summary>
+    /// <returns></returns>
     public bool NextState()
     {
         CurrentStateIndex += 1;
@@ -31,7 +34,10 @@ public class Storage
 
         return true;
     }
-
+    /// <summary>
+    /// Шаг назад
+    /// </summary>
+    /// <returns></returns>
     public bool PrevState()
     {
         CurrentStateIndex -= 1;
@@ -49,7 +55,11 @@ public class Storage
         return GetState(CurrentStateIndex);
     }
 
-
+    /// <summary>
+    /// Добавление новой записи
+    /// </summary>
+    /// <param name="state"></param>
+    /// <returns></returns>
     public bool AddState(State state)
     {
         if (state.IsCompleted)

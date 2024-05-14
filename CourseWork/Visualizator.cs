@@ -9,7 +9,12 @@ namespace CourseWork;
 public class Visualizator
 {
     private State? _status;
-
+    /// <summary>
+    /// Отрисовка задачи
+    /// </summary>
+    /// <param name="g"></param>
+    /// <param name="state"></param>
+    /// <param name="size"></param>
     public void Draw(Graphics g, State state, Size size)
     {
         if (_status != null)
