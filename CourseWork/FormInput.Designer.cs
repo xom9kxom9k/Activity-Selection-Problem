@@ -30,10 +30,12 @@
         {
             numericUpDown = new NumericUpDown();
             labelTime = new Label();
-            buttonAdd = new Button();
             labelStartBid = new Label();
             numericUpDown1 = new NumericUpDown();
-            buttonCancel = new Button();
+            listView1 = new ListView();
+            buttonStart = new Button();
+            buttonCansel = new Button();
+            buttonAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -54,17 +56,6 @@
             labelTime.TabIndex = 1;
             labelTime.Text = "Длина заявки";
             // 
-            // buttonAdd
-            // 
-            buttonAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonAdd.Location = new Point(427, 9);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(110, 43);
-            buttonAdd.TabIndex = 2;
-            buttonAdd.Text = "Добавить";
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
             // labelStartBid
             // 
             labelStartBid.AutoSize = true;
@@ -81,25 +72,58 @@
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 4;
             // 
-            // buttonCancel
+            // listView1
             // 
-            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonCancel.Location = new Point(311, 9);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(110, 43);
-            buttonCancel.TabIndex = 5;
-            buttonCancel.Text = "Отмена";
-            buttonCancel.UseVisualStyleBackColor = true;
+            listView1.Location = new Point(34, 66);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(263, 386);
+            listView1.TabIndex = 7;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonStart
+            // 
+            buttonStart.Anchor = AnchorStyles.Left;
+            buttonStart.Location = new Point(316, 189);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(120, 43);
+            buttonStart.TabIndex = 2;
+            buttonStart.Text = "Начать";
+            buttonStart.UseVisualStyleBackColor = true;
+            buttonStart.Click += buttonStart_Click;
+            // 
+            // buttonCansel
+            // 
+            buttonCansel.Anchor = AnchorStyles.Left;
+            buttonCansel.Location = new Point(316, 127);
+            buttonCansel.Name = "buttonCansel";
+            buttonCansel.Size = new Size(120, 43);
+            buttonCansel.TabIndex = 5;
+            buttonCansel.Text = "Отмена";
+            buttonCansel.UseVisualStyleBackColor = true;
+            buttonCansel.Click += buttonCansel_Click;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Anchor = AnchorStyles.Left;
+            buttonAdd.Location = new Point(316, 66);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(120, 43);
+            buttonAdd.TabIndex = 6;
+            buttonAdd.Text = "Добавить";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // FormInput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(549, 62);
-            Controls.Add(buttonCancel);
+            ClientSize = new Size(451, 462);
+            Controls.Add(listView1);
+            Controls.Add(buttonAdd);
+            Controls.Add(buttonCansel);
             Controls.Add(numericUpDown1);
             Controls.Add(labelStartBid);
-            Controls.Add(buttonAdd);
+            Controls.Add(buttonStart);
             Controls.Add(labelTime);
             Controls.Add(numericUpDown);
             Name = "FormInput";
@@ -114,9 +138,11 @@
 
         private NumericUpDown numericUpDown;
         private Label labelTime;
-        private Button buttonAdd;
         private Label labelStartBid;
         private NumericUpDown numericUpDown1;
-        private Button buttonCancel;
+        private ListView listView1;
+        private Button buttonStart;
+        private Button buttonCansel;
+        private Button buttonAdd;
     }
 }

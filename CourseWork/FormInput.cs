@@ -12,25 +12,36 @@ namespace CourseWork
 {
     public partial class FormInput : Form
     {
-        private Parameter? _parameter;
+        private List<Node> _nodes;
         public event Action<Parameter>? parameterDelegate;
 
         public FormInput()
         {
             InitializeComponent();
-
-            buttonCancel.Click += (sender, e) => Close();
+            _nodes = new List<Node>();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (_parameter != null)
+            Node node = new Node()
             {
-                parameterDelegate?.Invoke(_parameter);
-                Close();
-            }
+                StartBid = Convert.ToInt32(numericUpDown1.Value), EndBid = Convert.ToInt32(numericUpDown.Value)
+            };
+            _nodes.Add(node);
+            listView1.Items.Add(node.ToString());
         }
 
+        private void buttonCansel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            Parameter parameter = new Parameter(_nodes);
+            parameterDelegate?.Invoke(parameter);
+            Close();
+            buttonAdd.Enabled = true;
+        }
     }
 }

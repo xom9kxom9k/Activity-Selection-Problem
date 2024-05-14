@@ -4,13 +4,30 @@ namespace CourseWork
     {
         private Visualizator? visualizator;
         private Storage? _storage;
+
         /// <summary>
         /// Конструктор формы
         /// </summary>
         public FormMain()
         {
             InitializeComponent();
+            visualizator = new Visualizator();
         }
+
+        private void Draw()
+        {
+            MessageBox.Show(_storage.StatesCount.ToString());
+            if (visualizator == null || _storage == null || _storage.GetCurrentState() == null)
+            {
+                return;
+            }
+
+            Bitmap bmp = new(pictureBox.Width, pictureBox.Height);
+            Graphics gr = Graphics.FromImage(bmp);
+            visualizator.Draw(gr, _storage.GetCurrentState(), pictureBox.Size);
+            pictureBox.Image = bmp;
+        }
+
         /// <summary>
         /// Запуск выполнения задачм
         /// </summary>
@@ -22,14 +39,19 @@ namespace CourseWork
             formInput.parameterDelegate += AddData;
             formInput.Show();
         }
+
         private void AddData(Parameter paramter)
         {
             if (visualizator == null)
             {
                 return;
             }
+
+            _storage = new Manager(paramter).StartAlgo();
             MessageBox.Show("Задача запущена");
+            Draw();
         }
+
         /// <summary>
         /// Запуск информации 
         /// </summary>
@@ -39,6 +61,46 @@ namespace CourseWork
         {
             FormInformation formInformation = new FormInformation();
             formInformation.Show();
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (_storage == null)
+            {
+                MessageBox.Show("Задача не запущена");
+                return;
+            }
+
+            if (_storage.IsCompleted)
+            {
+                MessageBox.Show("Задача завершена\n ответ: " + _storage.GetCurrentState().Result);
+                return;
+            }
+
+            if (_storage.NextState())
+            {
+                Draw();
+            }
+        }
+
+        private void buttonPrev_Click(object sender, EventArgs e)
+        {
+            if (_storage == null)
+            {
+                MessageBox.Show("Задача не запущена");
+                return;
+            }
+
+            if (_storage.CurrentStateIndex == 0)
+            {
+                MessageBox.Show("Дальше некуда, только в гроб");
+                return;
+            }
+
+            if (_storage.PrevState())
+            {
+                Draw();
+            }
         }
     }
 }

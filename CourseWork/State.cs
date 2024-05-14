@@ -8,25 +8,17 @@ namespace CourseWork;
 
 public class State
 {
-    private Implement? _realization;
-    /// <summary>
-    /// Количество зявок
-    /// </summary>
-    public int CountBids { get; private set; }
-    /// <summary>
-    /// Время всех заявок
-    /// </summary>
-    public int Time {  get; private set; }
-    /// <summary>
-    /// Конструктор
-    /// </summary>
-    /// <param name="realization"></param>
-    /// <param name="countBids"></param>
-    /// <param name="time"></param>
-    private State(Implement? realization, int countBids, int time)
+    public List<Node> Binds;
+    public List<Node> SelectedBinds;
+
+    public int Result => SelectedBinds.Count;
+    public bool IsCompleted { get; private set; }
+
+    
+    public State(List<Node> binds, List<Node> selected, bool isCompleted)
     {
-        _realization = realization;
-        CountBids = countBids;
-        Time = time;
+        Binds = binds;
+        SelectedBinds = selected;
+        IsCompleted = isCompleted;
     }
 }

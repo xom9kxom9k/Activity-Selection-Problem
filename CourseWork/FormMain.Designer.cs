@@ -30,8 +30,9 @@
         {
             pictureBox = new PictureBox();
             buttonStart = new Button();
-            buttonStep = new Button();
+            buttonNext = new Button();
             buttonInformation = new Button();
+            buttonPrev = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -54,14 +55,16 @@
             buttonStart.UseVisualStyleBackColor = true;
             buttonStart.Click += buttonStart_Click;
             // 
-            // buttonStep
+            // buttonNext
             // 
-            buttonStep.Location = new Point(551, 407);
-            buttonStep.Name = "buttonStep";
-            buttonStep.Size = new Size(107, 34);
-            buttonStep.TabIndex = 2;
-            buttonStep.Text = "Шаг";
-            buttonStep.UseVisualStyleBackColor = true;
+            buttonNext.Location = new Point(551, 407);
+            buttonNext.Name = "buttonNext";
+            buttonNext.Size = new Size(107, 34);
+            buttonNext.TabIndex = 2;
+            buttonNext.Text = "Вперед";
+            buttonNext.UseVisualStyleBackColor = true;
+            buttonNext.Click += buttonNext_Click;
+
             // 
             // buttonInformation
             // 
@@ -73,13 +76,24 @@
             buttonInformation.UseVisualStyleBackColor = true;
             buttonInformation.Click += buttonInformation_Click;
             // 
+            // buttonPrev
+            // 
+            buttonPrev.Location = new Point(438, 407);
+            buttonPrev.Name = "buttonPrev";
+            buttonPrev.Size = new Size(107, 34);
+            buttonPrev.TabIndex = 4;
+            buttonPrev.Text = "Назад";
+            buttonPrev.UseVisualStyleBackColor = true;
+            buttonPrev.Click += buttonPrev_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonPrev);
             Controls.Add(buttonInformation);
-            Controls.Add(buttonStep);
+            Controls.Add(buttonNext);
             Controls.Add(buttonStart);
             Controls.Add(pictureBox);
             Name = "FormMain";
@@ -92,7 +106,8 @@
 
         private PictureBox pictureBox;
         private Button buttonStart;
-        private Button buttonStep;
+        private Button buttonNext;
         private Button buttonInformation;
+        private Button buttonPrev;
     }
 }

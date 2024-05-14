@@ -8,13 +8,23 @@ namespace CourseWork;
 
 public class Manager
 {
-    private Parameter? _parameter;
-    private Implement? _realization;
-    public void Step()
+    public Implement Implement;
+    public Manager(Parameter parameter)
     {
-        _realization = new();
-        
-        Storage storage = new();
-        storage.AddBid(_realization);
+        Implement = new Implement(parameter.Binds);
+    }
+
+    public Storage StartAlgo()
+    {
+        Storage storage = new Storage();
+        State state = Implement.GetState();
+        storage.AddState(state);
+        do
+        {
+            Implement.Step();
+            state = Implement.GetState();
+            storage.AddState(state);
+        } while (!Implement.IsCompleted);
+        return storage;
     }
 }
