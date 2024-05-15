@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelInfo2.Text" xml:space="preserve">
+    <value>Дано N заявок на проведение занятий в некоторой аудитории.
+В каждой заявке указано начало и конец занятия.
+Нужно из всех заявок оставить как можно больше, так, чтобы они не пересекались.
+При этом если одна заявка завершилась во время t, а следующая началась во время t, то
+их можно ставить подряд.</value>
+  </data>
 </root>

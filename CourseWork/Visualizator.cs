@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseWork;
-
+/// <summary>
+/// Класс - визуализатор
+/// </summary>
 public class Visualizator
 {
     private State? _status;

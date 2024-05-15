@@ -25,7 +25,8 @@ namespace CourseWork
         {
             Node node = new Node()
             {
-                StartBid = Convert.ToInt32(numericUpDown1.Value), EndBid = Convert.ToInt32(numericUpDown.Value)
+                StartBid = Convert.ToInt32(numericUpDown1.Value),
+                EndBid = Convert.ToInt32(numericUpDown.Value)
             };
             _nodes.Add(node);
             listView1.Items.Add(node.ToString());

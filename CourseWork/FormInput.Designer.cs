@@ -52,9 +52,9 @@
             labelTime.AutoSize = true;
             labelTime.Location = new Point(192, 9);
             labelTime.Name = "labelTime";
-            labelTime.Size = new Size(81, 15);
+            labelTime.Size = new Size(80, 15);
             labelTime.TabIndex = 1;
-            labelTime.Text = "Длина заявки";
+            labelTime.Text = "Конец заявки";
             // 
             // labelStartBid
             // 

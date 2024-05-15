@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInformation));
             labelInfo = new Label();
             buttonOk = new Button();
+            labelInfo2 = new Label();
             SuspendLayout();
             // 
             // labelInfo
             // 
             labelInfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelInfo.AutoSize = true;
-            labelInfo.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            labelInfo.Location = new Point(88, 82);
+            labelInfo.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelInfo.Location = new Point(105, 9);
             labelInfo.Margin = new Padding(4, 0, 4, 0);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(601, 25);
+            labelInfo.Size = new Size(602, 22);
             labelInfo.TabIndex = 0;
             labelInfo.Text = "Визуализация задачи о выборе заявок используя жадный алгоритм";
             // 
@@ -56,11 +58,21 @@
             buttonOk.Text = "ОК";
             buttonOk.UseVisualStyleBackColor = true;
             // 
+            // labelInfo2
+            // 
+            labelInfo2.AutoSize = true;
+            labelInfo2.Location = new Point(19, 50);
+            labelInfo2.Name = "labelInfo2";
+            labelInfo2.Size = new Size(722, 105);
+            labelInfo2.TabIndex = 2;
+            labelInfo2.Text = resources.GetString("labelInfo2.Text");
+            // 
             // FormInformation
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(772, 267);
+            Controls.Add(labelInfo2);
             Controls.Add(buttonOk);
             Controls.Add(labelInfo);
             Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -75,5 +87,6 @@
 
         private Label labelInfo;
         private Button buttonOk;
+        private Label labelInfo2;
     }
 }

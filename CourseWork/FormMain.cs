@@ -16,7 +16,6 @@ namespace CourseWork
 
         private void Draw()
         {
-            MessageBox.Show(_storage.StatesCount.ToString());
             if (visualizator == null || _storage == null || _storage.GetCurrentState() == null)
             {
                 return;
@@ -73,7 +72,7 @@ namespace CourseWork
 
             if (_storage.IsCompleted)
             {
-                MessageBox.Show("Задача завершена\n ответ: " + _storage.GetCurrentState().Result);
+                MessageBox.Show("Задача завершена\nОтвет: " + _storage.GetCurrentState().Result + " заявок(ки).");
                 return;
             }
 

@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseWork;
-
+/// <summary>
+/// Класс - хранилище
+/// </summary>
 public class Storage
 {
     private List<State> states;

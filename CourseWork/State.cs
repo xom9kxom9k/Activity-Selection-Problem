@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseWork;
-
+/// <summary>
+/// Класс - состояние
+/// </summary>
 public class State
 {
     public List<Node> Binds;

@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseWork;
-
+/// <summary>
+/// Класс - реализатор
+/// </summary>
 public class Implement
 {
     public bool IsStart;

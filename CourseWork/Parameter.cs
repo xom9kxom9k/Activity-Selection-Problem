@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseWork;
+/// <summary>
+/// Класс - параметр
+/// </summary>
 public class Parameter
 {
     /// <summary>
