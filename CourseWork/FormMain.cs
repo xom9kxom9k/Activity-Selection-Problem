@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace CourseWork
 {
     public partial class FormMain : Form
@@ -92,7 +94,7 @@ namespace CourseWork
 
             if (_storage.CurrentStateIndex == 0)
             {
-                MessageBox.Show("Дальше некуда, только в гроб");
+                MessageBox.Show("Назад нельзя");
                 return;
             }
 
@@ -100,6 +102,54 @@ namespace CourseWork
             {
                 Draw();
             }
+        }
+        /// <summary>
+        /// Обработка сохранения 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(_storage.SaveState(saveFileDialog.FileName)
+                    ? $"Список состояний успешно сохранён в {saveFileDialog.FileName}"
+                    : $"Ошибка при сохранении файла {saveFileDialog.FileName}");
+            }
+            if (_storage == null)
+            {
+                MessageBox.Show("Сначала нужно ввести дааные о заявках");
+                return;
+            }
+        }
+        /// <summary>
+        /// Обработка загрузки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _storage ??= new Storage();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                if (_storage.LoadState(filePath))
+                {
+                    UpdateVizualization();
+                    MessageBox.Show("Файл загружен успешно");
+                }
+                else
+                {
+                    MessageBox.Show("Неверный формат файла или файл поврежден");
+                }
+            }
+        }
+        private void UpdateVizualization()
+        {
+            
+
+            Draw();
         }
     }
 }

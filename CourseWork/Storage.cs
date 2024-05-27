@@ -103,4 +103,32 @@ public class Storage
 
         return null;
     }
+    public bool SaveState(string filename)
+    {
+        try
+        {
+            using var file = File.Create(filename);
+            
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
+    public bool LoadState(string filename)
+    {
+        try
+        {
+            State tmpStates;
+            using (var file = File.OpenRead(filename))
+            {
+               
+            }
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
 }
