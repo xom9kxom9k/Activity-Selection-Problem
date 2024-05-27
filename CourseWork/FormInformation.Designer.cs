@@ -50,10 +50,10 @@
             // 
             buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonOk.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonOk.Location = new Point(318, 159);
+            buttonOk.Location = new Point(346, 219);
             buttonOk.Margin = new Padding(4);
             buttonOk.Name = "buttonOk";
-            buttonOk.Size = new Size(166, 95);
+            buttonOk.Size = new Size(113, 35);
             buttonOk.TabIndex = 1;
             buttonOk.Text = "ОК";
             buttonOk.UseVisualStyleBackColor = true;
