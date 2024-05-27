@@ -124,14 +124,9 @@
             LoadToolStripMenuItem.Text = "Загрузка";
             LoadToolStripMenuItem.Click += LoadToolStripMenuItem_Click;
             // 
-            // saveFileDialog
-            // 
-            saveFileDialog.Filter = "file txt | *.txt";
-            // 
             // openFileDialog
             // 
             openFileDialog.FileName = "openFileDialog1";
-            openFileDialog.Filter = "file txt | *.txt";
             // 
             // FormMain
             // 

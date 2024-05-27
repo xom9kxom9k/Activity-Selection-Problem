@@ -122,7 +122,9 @@ namespace CourseWork
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Файл успешно сохранен", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(_storage.SaveState(saveFileDialog.FileName)
+                    ? $"Список состояний успешно сохранён в {saveFileDialog.FileName}"
+                    : $"Ошибка при сохранении файла {saveFileDialog.FileName}");
             }
             if (_storage == null)
             {
@@ -144,7 +146,7 @@ namespace CourseWork
                 string filePath = openFileDialog.FileName;
                 if (_storage.LoadState(filePath))
                 {
-                    UpdateVizualization();
+                    Draw();
                     MessageBox.Show("Файл загружен успешно");
                 }
                 else
@@ -153,11 +155,6 @@ namespace CourseWork
                 }
             }
         }
-        private void UpdateVizualization()
-        {
-            
 
-            Draw();
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProtoBuf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -105,10 +106,12 @@ public class Storage
     }
     public bool SaveState(string filename)
     {
-        try
+        
+        try 
         {
             using var file = File.Create(filename);
-            
+            Serializer.Serialize(file, new StateList(states));
+            return true;
         }
         catch (Exception)
         {
@@ -118,17 +121,21 @@ public class Storage
 
     public bool LoadState(string filename)
     {
-        try
-        {
-            State tmpStates;
+        try { 
+            StateList tmpStates;
             using (var file = File.OpenRead(filename))
             {
-               
+                tmpStates = Serializer.Deserialize<StateList>(file);
+                states = tmpStates.States;
+                CurrentStateIndex = 0;
+                return true;
             }
         }
-        catch (Exception)
+        catch (Exception) 
         {
             return false;
         }
+
+
     }
 }
