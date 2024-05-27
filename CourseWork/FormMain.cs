@@ -15,7 +15,9 @@ namespace CourseWork
             InitializeComponent();
             visualizator = new Visualizator();
         }
-
+        /// <summary>
+        /// Отрисовка
+        /// </summary>
         private void Draw()
         {
             if (visualizator == null || _storage == null || _storage.GetCurrentState() == null)
@@ -63,7 +65,11 @@ namespace CourseWork
             FormInformation formInformation = new FormInformation();
             formInformation.Show();
         }
-
+        /// <summary>
+        /// Обработака шага вперед
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonNext_Click(object sender, EventArgs e)
         {
             if (_storage == null)
@@ -83,7 +89,11 @@ namespace CourseWork
                 Draw();
             }
         }
-
+        /// <summary>
+        /// Обработка шага назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonPrev_Click(object sender, EventArgs e)
         {
             if (_storage == null)
@@ -112,9 +122,7 @@ namespace CourseWork
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(_storage.SaveState(saveFileDialog.FileName)
-                    ? $"Список состояний успешно сохранён в {saveFileDialog.FileName}"
-                    : $"Ошибка при сохранении файла {saveFileDialog.FileName}");
+                MessageBox.Show("Файл успешно сохранен", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (_storage == null)
             {
