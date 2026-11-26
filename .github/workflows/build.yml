@@ -1,0 +1,48 @@
+name: SonarQube
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and analyze
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: windows-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install SonarScanner for .NET
+        shell: pwsh
+        run: dotnet tool install --global dotnet-sonarscanner --version 12.1.0
+
+      - name: Authenticate to SonarQube Cloud
+        uses: SonarSource/sonarqube-auth-action@v1.2
+        with:
+          project-key: xom9kxom9k_Activity-Selection-Problem
+
+      - name: Start SonarQube analysis
+        shell: pwsh
+        run: dotnet sonarscanner begin /k:"xom9kxom9k_Activity-Selection-Problem" /o:"xom9kxom9k" /d:sonar.token="$env:SONAR_TOKEN"
+
+      - name: Build CourseWork
+        shell: pwsh
+        run: dotnet build CourseWork/CourseWork.sln --no-incremental --disable-build-servers
+
+      - name: Upload SonarQube analysis
+        shell: pwsh
+        run: dotnet sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"
